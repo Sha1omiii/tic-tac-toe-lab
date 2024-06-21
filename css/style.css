@@ -1,0 +1,34 @@
+body {
+    background-color: gainsboro;
+    /* Use a system font, if none are available use an available sans-sarif */
+    font-family: "Caveat", sans-serif;
+    margin: 10% 29%;
+  }
+  
+  .board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 325px;
+    text-align: center;
+  }
+  
+  .sqr {
+    width: 30%;
+    aspect-ratio: 1/1;
+    border: 3px solid black;
+    border-radius: 4cm;
+    font-size: 64px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  h1 {
+    font-size: 70px;;
+  }
+
+  #reset {
+    position: absolute;
+    right: 50%;
+    color: blue;
+  }
+  
