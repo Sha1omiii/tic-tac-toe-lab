@@ -27,22 +27,16 @@ function reset () {
     init();
     resetBtnEl.style.backgroundColor = 'black';
     resetBtnEl.style.color = 'yellow';
-
 }
 
-
 function checkForTie () {
-    if(winner) 
+    if(winner === true) 
         return;
-    for (let i = 0; i < boardOptions.length; i++) {
-        if (boardOptions[i] === '') {
-            tie = false;
-            console.log(tie);
-        } 
-        else {
-            tie = true;
-            console.log(tie);
-        }
+    if (boardOptions.includes('')) {
+        tie = false;
+    } 
+    else {
+        tie = true;
     }
 }
 
@@ -58,7 +52,7 @@ function checkWinner () {
                 winner = true;
                 msgEl.textContent = `${turn} won`;
                 return;
-            }
+            } 
         }
     }
 }
@@ -69,8 +63,11 @@ function placePiece (index) {
 
 function handleClick(event) {
     const sqIdx = event.target.id;
-    if (boardOptions[sqIdx] === 'X' || boardOptions[sqIdx] === 'O' && winner === true) {
+    if (boardOptions[sqIdx] === 'X' || boardOptions[sqIdx] === 'O') {
         return; 
+    } 
+    else if (winner === true) {
+        return;
     }
 
     placePiece(sqIdx);
@@ -92,11 +89,11 @@ function updateMessage () {
     } 
 }
 
-
 function updateBoard () {
     boardOptions.forEach((i, idx) => {
         const squareEl = squareEls[idx];
         squareEl.textContent = i;
+            
     })
 }
 
@@ -114,7 +111,7 @@ function init () {
 
     
 }
-init()
+init();
 /*----------------------------- Event Listeners -----------------------------*/
 
 
